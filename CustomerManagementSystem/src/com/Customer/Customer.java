@@ -2,7 +2,7 @@ package com.Customer;
 
 import java.time.LocalDate;
 
-public class Customer {
+public class Customer implements Comparable<Customer>{
 	private int customer_id;
 	private String first_name;
 	private String last_name;
@@ -16,6 +16,7 @@ public class Customer {
 	static {
 		counter=0;
 	}
+	
 	
 	//parameterized constructor
 	public Customer( String first_name, String last_name, String email, String passward,
@@ -123,5 +124,12 @@ public class Customer {
 		}
 		return false;
 		
+	}
+
+	@Override
+	public int compareTo(Customer o) {
+		// TODO Auto-generated method stub
+		
+		return this.email.compareTo(o.email);
 	}			
 }

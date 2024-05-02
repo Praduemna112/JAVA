@@ -60,16 +60,17 @@ public class ValidationRules {
 	}
 
 
-	public static Customer changepasswordCustomer(String next, String next2, List<Customer> customerList) {
+	public static Customer unsubscribeUser(String email, String password, List<Customer> customerList) throws CustException {
 		// TODO Auto-generated method stub
-		System.out.println("enter email n ");
-		
-		
-		return null;
+		Customer customer =authenticationCustomer(email,password,customerList);
+		int index =customerList.indexOf(customer);
+		if (index == -1)
+		throw new CustException("Email not found");
+		return customerList.remove(index);
 	}
 
 
-	
+
 
 }
 
