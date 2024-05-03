@@ -27,7 +27,8 @@ public class CustomerApp {
 			while (!exit)
 			{
 				System.out.println("Option:1 Customer sign up\n 2.display\n 3.Login \n 4. changing password\n 5.unsubscribe\n "
-						+ "6. sorting customer by Date of birth and last name \n 7.sorted as per the email\n 0.exit");
+						+ "6. sorting customer by Date of birth and last name \n 7.sorted as per the email\n 8. remove account via email\n "
+						+ "9.remove from email or firstname 0.exit");
 				System.out.println("choose");
 				try {
 					switch(sc.nextInt()) {
@@ -63,7 +64,7 @@ public class CustomerApp {
 						customer=ValidationRules.unsubscribeUser(sc.next(),sc.next(),customerList);
 						System.out.println("Remove email successful1");
 						break;
-					case 6:
+					case 6://sorted
 						System.out.println("sorting customer by Date of birth and last name");
 						customerList.sort(new Comparator<Customer>() {
 						public int compare(Customer c1,Customer c2) {
@@ -77,11 +78,23 @@ public class CustomerApp {
 						});
 						System.out.println("customer sorted successfully");
 						break;
-					case 7:
+					case 7://sorted 
 						System.out.println("sorted as per the email");
 						Collections.sort(customerList);
 						break;
+					case 8: //removal oparation
+						System.out.println("for remove account via email ");
+						String g=ValidationRules.removeAccount(sc.next(), customerList);
+						System.out.println(g);
+						break;
+					case 9://remove from email or firstname
+						System.out.println("remove account");
+						ValidationRules.removeAccountEmailFistName(sc.next(), sc.next(),sc.next(), customerList);
+						//System.out.println(f);
+						break;
+						
 					case 0:
+						System.out.println("main overs");
 						exit=true;
 					}
 					

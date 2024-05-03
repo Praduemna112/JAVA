@@ -35,11 +35,14 @@ public class Customer implements Comparable<Customer>{
 	}
 	
 //add overloaded ctor to wrap PK(email)
-	public Customer(String email) {
-		super();
-		this.email = email;
-	}
 
+	public Customer(String email) {
+		this.first_name = email;
+	}
+	public Customer(String firsString,String lastname) {
+		this.first_name=firsString;
+		this.last_name=lastname;
+	}
 
 	public int getCustomer_id() {
 		return customer_id;
@@ -120,12 +123,13 @@ public class Customer implements Comparable<Customer>{
 		if (o instanceof Customer)
 		{
 		Customer c=(Customer)o;
-		return (this.email.equals(c.email));
+		return (this.email.equals(c.email) || (this.first_name.equals(c.first_name) && this.last_name.equals(c.last_name)));
 		}
 		return false;
 		
 	}
 
+	
 	@Override
 	public int compareTo(Customer o) {
 		// TODO Auto-generated method stub
